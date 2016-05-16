@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $(dirname ${BASH_SOURCE})/../util.sh
+. $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../util.sh
 
 desc "Resize the RC and watch the service backends change"
 run "kubectl --namespace=demos scale rc hostnames --replicas=1"

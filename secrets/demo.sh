@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $(dirname ${BASH_SOURCE})/../util.sh
+. $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../util.sh
 
 desc "Create a secret"
 run "cat $(relative secret.yaml)"

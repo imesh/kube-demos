@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $(dirname ${BASH_SOURCE})/../util.sh
+. $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../util.sh
 
 if kubectl --namespace=demos get rc hostnames >/dev/null 2>&1; then
     desc "Revisit our replication controller"
@@ -33,6 +33,6 @@ run "gcloud compute ssh --zone=us-central1-b $SSH_NODE --command '\\
     '"
 
 tmux new -d -s my-session \
-    "$(dirname ${BASH_SOURCE})/split1_lhs.sh" \; \
+    "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/split1_lhs.sh" \; \
     split-window -h -d "sleep 10; $(dirname $BASH_SOURCE)/split1_rhs.sh" \; \
     attach \;

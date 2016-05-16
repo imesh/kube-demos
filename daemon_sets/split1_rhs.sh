@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $(dirname ${BASH_SOURCE})/../util.sh
+. $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../util.sh
 
 desc "Color each node, slowly"
 run "for NODE in \$(kubectl get nodes -o name | grep -v master | cut -f2 -d/); do \\

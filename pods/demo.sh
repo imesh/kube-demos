@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $(dirname ${BASH_SOURCE})/../util.sh
+. $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../util.sh
 
 desc "There are no running pods"
 run "kubectl --namespace=demos get pods"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $(dirname ${BASH_SOURCE})/../util.sh
+. $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../util.sh
 
 IP=$(kubectl --namespace=demos get svc deployment-demo \
         -o go-template='{{.spec.clusterIP}}')

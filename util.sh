@@ -5,6 +5,10 @@ readonly  green=$(tput bold; tput setaf 2)
 readonly yellow=$(tput bold; tput setaf 3)
 readonly   blue=$(tput bold; tput setaf 6)
 
+function realpath() {
+    [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
+}
+
 function desc() {
     maybe_first_prompt
     echo "$blue# $@$reset"
@@ -35,7 +39,7 @@ function run() {
     fi
     eval "$1"
     r=$?
-    read -d '' -t 0.1 -n 10000 # clear stdin
+    read -d '' -t 1 -n 10000 # clear stdin
     prompt
     if [ -z "$DEMO_AUTO_RUN" ]; then
       read -s

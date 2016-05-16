@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $(dirname ${BASH_SOURCE})/../util.sh
+. $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../util.sh
 
 for NODE in $(kubectl get nodes -o name | cut -f2 -d/); do
     kubectl label node $NODE color- --overwrite >/dev/null 2>&1
@@ -20,6 +20,6 @@ run "kubectl --namespace=demos create -f $(relative daemon.yaml) --validate=fals
 run "kubectl --namespace=demos describe ds daemons-demo"
 
 tmux new -d -s my-session \
-    "$(dirname ${BASH_SOURCE})/split1_lhs.sh" \; \
+    "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/split1_lhs.sh" \; \
     split-window -h -d "sleep 10; $(dirname $BASH_SOURCE)/split1_rhs.sh" \; \
     attach \;

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $(dirname ${BASH_SOURCE})/util.sh
+. $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/util.sh
 
 desc "The demo namespace does not exist"
 run "kubectl get namespaces"
