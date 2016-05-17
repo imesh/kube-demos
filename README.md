@@ -1,7 +1,7 @@
 # kube-demos
 Kubernetes demos
 
-To run these demos you need 'pv' and 'tmux' installed.
+To run these demos you need 'pv', 'tmux' and 'coreutils' installed.
 
 To make best use of these demos:
 

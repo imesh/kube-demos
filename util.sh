@@ -5,10 +5,6 @@ readonly  green=$(tput bold; tput setaf 2)
 readonly yellow=$(tput bold; tput setaf 3)
 readonly   blue=$(tput bold; tput setaf 6)
 
-function realpath() {
-    [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
-}
-
 function desc() {
     maybe_first_prompt
     echo "$blue# $@$reset"
